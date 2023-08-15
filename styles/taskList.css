@@ -1,0 +1,297 @@
+/* 
+
+CUSTOMIZATIONS TO ADD:
+
+- add a way to change the borders
+- add a way to change the scroll speed
+
+*/
+
+:root {
+	/* fonts */
+	--header-font-family: sans-serif;
+	--body-font-family: sans-serif;
+
+	/* ENTIRE task list */
+	--task-list-width: 500px;
+	--task-list-height: 200px;
+	--task-list-background-color: rgba(0, 0, 0, 0.5);
+
+	--task-list-border-color: black;
+	--task-list-border-width: 1px;
+	--task-list-border-radius: 10px;
+
+	--task-list-padding: 10px;
+
+	/* header */
+	--header-border-color: black;
+	--header-border-width: 1px;
+	--header-border-radius: 0px;
+	--header-height: 30px;
+	--header-font-size: 20px;
+	--header-font-color: white;
+	--header-background-color: rgba(0, 0, 0, 0.5);
+	--header-padding: 10px;
+
+	/* tasks number */
+	--tasks-number-font-size: 20px;
+
+	/* body */
+	--body-border-color: black;
+	--body-border-width: 1px;
+	--body-border-radius: 0px;
+	--body-font-color: white;
+	--body-background-color: rgba(0, 0, 0, 0.5);
+	--body-vertical-padding: 10px;
+	--body-horizontal-padding: 10px;
+
+	/* task */
+	--task-font-size: 16px;
+	--task-font-color: white;
+	--task-background-color: rgba(0, 0, 0, 0.5);
+	--task-border-color: black;
+	--task-border-width: 0px;
+	--task-border-radius: 0px;
+	--task-margin-bottom: 10px;
+	--task-padding: 10px;
+	--task-max-width: 70%;
+
+	--number-of-lines: 1; /* number of lines to show */
+
+	/* check box */
+	--check-box-size: 15px;
+	--check-box-color: white;
+	--check-box-margin-top: 3px;
+	--check-box-margin-left: 2px;
+	--check-box-margin-right: 2px;
+	--check-box-border-width: 1px;
+	--check-box-border-radius: 0px;
+	--check-box-border-color: white;
+	--tick-character: "✓";
+	--tick-color: white;
+	--tick-size: 10px;
+	--tick-translate-y: 2px;
+
+	/* bullet point */
+	--bullet-point-color: white;
+	--bullet-point-size: 15px;
+	--bullet-point-margin-top: 3px;
+	--bullet-point-margin-left: 2px;
+	--bullet-point-margin-right: 2px;
+
+	/* username */
+	--username-color: white;
+	--username-max-width: 10px;
+
+	/* colon */
+	--colon-margin-right: 2px;
+	--colon-margin-left: 2px;
+}
+
+*,
+*:before,
+*:after {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-size: 16px;
+
+	background-color: gray;
+	color: white;
+}
+
+#main-container {
+	display: flex;
+	flex-direction: column;
+	width: var(--task-list-width);
+	height: var(--task-list-height);
+	border: solid;
+	border-color: var(--task-list-border-color);
+	border-width: var(--task-list-border-width);
+	border-radius: var(--task-list-border-radius);
+	padding: var(--task-list-padding);
+
+	background: var(--task-list-background-color);
+}
+
+.header {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+
+	width: 100%;
+	height: var(--header-height);
+
+	font-family: var(--header-font-family);
+
+	border: solid;
+	border-color: var(--header-border-color);
+	border-width: var(--header-border-width);
+	border-radius: var(--header-border-radius);
+
+	padding: var(--header-padding);
+
+	background: var(--header-background-color);
+	color: var(--header-font-color);
+}
+
+#title {
+	font-weight: normal;
+	font-size: var(--header-font-size);
+}
+
+#task-count {
+	font-size: var(--tasks-number-font-size);
+}
+
+.task-wrapper {
+	background: var(--body-background-color);
+	color: var(--body-font-color);
+	font-family: var(--body-font-family);
+
+	border: solid;
+	border-color: var(--body-border-color);
+	border-width: var(--body-border-width);
+	border-radius: var(--body-border-radius);
+
+	padding: var(--body-vertical-padding) var(--body-horizontal-padding);
+
+	display: flex;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	position: relative;
+
+	overflow: hidden;
+}
+
+.task-container {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	z-index: -1;
+}
+
+/* INDIVIDUAL TASKS */
+.crossed {
+	text-decoration-line: line-through;
+}
+
+#title {
+	transition: opacity 500ms;
+}
+
+.fade {
+	opacity: 0;
+}
+
+.task-div {
+	display: flex;
+	flex-direction: row;
+
+	font-size: var(--task-font-size);
+	color: var(--task-font-color);
+	background-color: var(--task-background-color);
+
+	border: solid;
+	border-color: var(--task-border-color);
+	border-width: var(--task-border-width);
+	border-radius: var(--task-border-radius);
+
+	margin-bottom: var(--task-margin-bottom);
+	padding: var(--task-padding);
+}
+
+.secondary {
+	display: none;
+}
+
+.username {
+	color: var(--username-color);
+	font-weight: bold;
+	width: fit-content;
+	max-width: var(--username-max-width);
+	white-space: nowrap;
+
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.task-div:not(:last-child) {
+	margin-bottom: var(--task-margin-bottom);
+}
+
+.checkbox {
+	display: flex;
+	justify-content: center;
+	position: relative;
+	align-items: start;
+	margin-top: var(--check-box-margin-top);
+	margin-left: var(--check-box-margin-left);
+	margin-right: var(--check-box-margin-right);
+}
+
+input[type="checkbox"] {
+	display: none;
+}
+
+input[type="checkbox"] + label {
+	display: inline-block;
+	position: relative;
+
+	border: solid;
+	border-color: var(--check-box-border-color);
+	border-width: var(--check-box-border-width);
+	border-radius: var(--check-box-border-radius);
+
+	background: var(--check-box-background-color);
+	width: var(--check-box-size);
+	height: var(--check-box-size);
+	margin-right: 5px;
+
+	font-size: var(--font-size);
+}
+
+input[type="checkbox"]:checked + label:after {
+	content: var(--tick-character);
+	color: var(--tick-color);
+	font-size: var(--tick-size);
+	transform: translateY(calc(var(--tick-translate-y) * -1));
+
+	display: flex;
+	justify-content: center;
+}
+
+.bullet-point {
+	display: flex;
+	justify-content: start;
+	align-items: start;
+	margin-top: var(--bullet-point-margin-top);
+	margin-left: var(--bullet-point-margin-left);
+	margin-right: var(--bullet-point-margin-right);
+}
+
+.colon {
+	margin-right: var(--colon-margin-right);
+	margin-left: var(--colon-margin-left);
+}
+
+.task {
+	display: -webkit-box;
+	-webkit-line-clamp: var(--number-of-lines);
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	width: max-content;
+	max-width: var(--task-max-width);
+}
