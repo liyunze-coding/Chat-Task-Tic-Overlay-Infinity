@@ -111,8 +111,7 @@ ComfyJS.onCommand = (user, command, message, flags, extra) => {
 			// user is not a mod or broadcaster
 			return respond(responseTemplates.notMod, user);
 		}
-		resetDB();
-		renderTaskList();
+		clearAllTasks();
 
 		respond(responseTemplates.clearedAll, user);
 	} else if (commands.adminDeleteCommands.includes(command)) {

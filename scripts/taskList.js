@@ -86,6 +86,7 @@ function resetDB() {
 
 function clearAllTasks() {
 	resetDB();
+	cancelAnimation();
 	renderTaskList();
 }
 
@@ -391,6 +392,7 @@ function adminDeleteTask(username) {
 
 	saveTasks(tasks);
 	renderTaskList();
+	cancelAnimation();
 }
 
 // delete all completed tasks
@@ -405,7 +407,7 @@ function cleardone() {
 
 	saveTasks(tasks);
 	renderTaskList();
-	restartAnimation();
+	cancelAnimation();
 }
 
 // sleep function
@@ -461,28 +463,38 @@ async function animate() {
 
 		// wait for animation to finish
 		scrolling = true;
-		await sleep(duration);
-		scrolling = false;
-		renderTaskList();
+
+		addAnimationListeners();
 	} else if (!scrolling) {
-		console.log(document.querySelector(".secondary"));
 		document.querySelector(".secondary").style.display = "none";
 
 		// cancel animations
-		if (primaryAnimation && secondaryAnimation) {
-			primaryAnimation.cancel();
-			secondaryAnimation.cancel();
-		}
-		scrolling = false;
+		cancelAnimation();
 	}
 }
 
-function restartAnimation() {
-	if (primaryAnimation && secondaryAnimation) {
+function addAnimationListeners() {
+	if (primaryAnimation) {
+		primaryAnimation.addEventListener("finish", animationFinished);
+		primaryAnimation.addEventListener("cancel", animationFinished);
+	}
+}
+
+function animationFinished() {
+	scrolling = false;
+	renderTaskList();
+	animate();
+}
+
+function cancelAnimation() {
+	console.log("Animation should be cancelled");
+	if (primaryAnimation) {
 		primaryAnimation.cancel();
+	}
+	if (secondaryAnimation) {
 		secondaryAnimation.cancel();
 	}
-	animate();
+	scrolling = false;
 }
 
 // tests
@@ -493,7 +505,7 @@ function oneLineTasks() {
 }
 
 async function oneLineDoneTasks() {
-	for (let i = 1; i <= 10; i++) {
+	for (let i = 1; i <= 7; i++) {
 		addTask(
 			`ryans_impostor_${i}`,
 			"#fff",
@@ -605,5 +617,5 @@ window.onload = function () {
 	// resetDB();
 	setupDB();
 	renderTaskList();
-	tests();
+	// tests();
 };
