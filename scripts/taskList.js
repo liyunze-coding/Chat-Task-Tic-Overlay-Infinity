@@ -267,7 +267,6 @@ function userHasTask(username) {
 
 // user adding task
 function addTask(username, userColor, task) {
-	incrementID(username, 1);
 	let tasks = getTasks();
 	let id = getID(username);
 
@@ -293,6 +292,8 @@ function doneTask(username) {
 
 	tasks[`${username}-${id}`].done = true;
 
+	incrementID(username, 1);
+
 	saveTasks(tasks);
 
 	if (!scrolling) {
@@ -317,6 +318,8 @@ function removeTask(username) {
 	let removedTask = userTasks.task;
 
 	delete tasks[`${username}-${id}`];
+
+	incrementID(username, -1);
 
 	saveTasks(tasks);
 
@@ -580,16 +583,13 @@ function hexToRgb(hex) {
 	return `${r}, ${g}, ${b}`;
 }
 
+let currentTitle = 0;
 // interval the task title
 setInterval(async () => {
 	let taskTitle = document.getElementById("title");
-	let taskTitleText = taskTitle.innerText;
 
 	// cycle through a list of titles
 	const titles = configs.titles;
-
-	// get current title
-	let currentTitle = titles.indexOf(taskTitleText);
 
 	// if current title is the last title, set it to the first title
 	if (currentTitle === titles.length - 1) {
