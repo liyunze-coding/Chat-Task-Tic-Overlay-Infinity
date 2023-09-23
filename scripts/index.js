@@ -126,9 +126,8 @@ ComfyJS.onCommand = (user, command, message, flags, extra) => {
 			// check if user has a task pending
 			return respond(responseTemplates.noTask, user);
 		}
-		// message stripped of
-		message = message.replace(command, "").trim();
-		if (message.trim() === "") {
+
+		if (message === "") {
 			// check if message is empty
 			return respond(responseTemplates.nextNoContent, user);
 		}
