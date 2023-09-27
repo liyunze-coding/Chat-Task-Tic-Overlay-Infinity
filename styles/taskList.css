@@ -13,8 +13,8 @@ CUSTOMIZATIONS TO ADD:
 	--body-font-family: sans-serif;
 
 	/* ENTIRE task list */
-	--task-list-width: 500px;
-	--task-list-height: 200px;
+	--task-list-width: 100%;
+	--task-list-height: 100vh;
 	--task-list-background-color: rgba(0, 0, 0, 0.5);
 
 	--task-list-border-color: black;

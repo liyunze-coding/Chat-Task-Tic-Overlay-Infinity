@@ -18,9 +18,6 @@ const configs = (function () {
 	const animationDelay = 5; // must be a number (seconds)
 
 	// task list
-	const taskListWidth = "500px"; // must have px at the end
-	const taskListHeight = "410px"; // must have px at the end
-
 	const taskListBackgroundColor = "#000"; // hex only
 	const taskListBackgroundOpacity = 0; // must be between 0 and 1
 
@@ -241,8 +238,6 @@ const configs = (function () {
 		taskListScrollBehaviour,
 		pixelsPerSecond,
 		animationDelay,
-		taskListWidth,
-		taskListHeight,
 		taskListBackgroundColor,
 		taskListBackgroundOpacity,
 		taskListBorderColor,
