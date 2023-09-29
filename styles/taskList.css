@@ -55,6 +55,7 @@ CUSTOMIZATIONS TO ADD:
 	--task-margin-bottom: 10px;
 	--task-padding: 10px;
 	--task-max-width: 70%;
+	--task-direction: row;
 
 	--number-of-lines: 1; /* number of lines to show */
 
@@ -196,9 +197,14 @@ body {
 	opacity: 0;
 }
 
-.task-div {
+.username-div {
 	display: flex;
 	flex-direction: row;
+}
+
+.task-div {
+	display: flex;
+	flex-direction: var(--task-direction);
 
 	font-size: var(--task-font-size);
 	color: var(--task-font-color);

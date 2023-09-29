@@ -188,7 +188,10 @@ function addTasksToDom(username, userColor, task, completed) {
 
 	taskContainers.forEach(function (taskList) {
 		let newTask = document.createElement("div");
+		let usernameTask = document.createElement("div");
+
 		newTask.className = "task-div";
+		usernameTask.className = "username-div";
 
 		if (configs.settings.showCheckBox) {
 			// <div class="checkbox"><input type="checkbox" /><label></label></div>
@@ -208,14 +211,14 @@ function addTasksToDom(username, userColor, task, completed) {
 			let checkboxLabel = document.createElement("label");
 			checkbox.appendChild(checkboxLabel);
 
-			newTask.appendChild(checkbox);
+			usernameTask.appendChild(checkbox);
 		} else {
 			let bulletPointDiv = document.createElement("div");
 
 			bulletPointDiv.className = "bullet-point";
 			bulletPointDiv.innerText = configs.styles.bulletPointCharacter;
 
-			newTask.appendChild(bulletPointDiv);
+			usernameTask.appendChild(bulletPointDiv);
 		}
 
 		// <div class="username">username</div>
@@ -227,13 +230,15 @@ function addTasksToDom(username, userColor, task, completed) {
 			usernameDiv.style.color = userColor;
 		}
 
-		newTask.appendChild(usernameDiv);
+		usernameTask.appendChild(usernameDiv);
 
 		//  <div class="colon">:</div>
 		let colon = document.createElement("div");
 		colon.className = "colon";
 		colon.innerText = ":";
-		newTask.appendChild(colon);
+		usernameTask.appendChild(colon);
+
+		newTask.appendChild(usernameTask);
 
 		// <div class="task">task</div>
 		let taskDiv = document.createElement("div");
@@ -614,8 +619,8 @@ setInterval(async () => {
 // on window load
 window.onload = function () {
 	importStyles();
-	// resetDB();
+	resetDB();
 	setupDB();
 	renderTaskList();
-	// tests();
+	tests();
 };

@@ -57,6 +57,8 @@ const configs = (function () {
 	// task (individual tasks)
 	const numberOfLines = 1; // number of lines for the task
 	const usernameColor = "white"; // hex or name, "" for twitch username color
+	const taskDirection = "row"; // row or column
+
 	const usernameMaxWidth = "200px"; // must have px at the end
 
 	const taskBackgroundColor = "#000"; // hex only
@@ -274,6 +276,7 @@ const configs = (function () {
 		taskBorderWidth,
 		taskMarginBottom,
 		taskPadding,
+		taskDirection,
 		taskMaxWidth,
 		checkBoxSize,
 		checkBoxBorderColor,
