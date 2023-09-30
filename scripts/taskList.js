@@ -619,8 +619,8 @@ setInterval(async () => {
 // on window load
 window.onload = function () {
 	importStyles();
-	resetDB();
+	// resetDB();
 	setupDB();
 	renderTaskList();
-	tests();
+	// tests();
 };
