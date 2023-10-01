@@ -227,11 +227,11 @@ const configs = (function () {
 	const help = `{user} Use the following commands to help you out - !task !remove !edit !done. For more commands, click here: https://github.com/liyunze-coding/Chat-Task-Tic-Overlay#commands`;
 
 	const additionalCommands = {
-		"!ryanpython":
-			"{user} RyanPython is the creator of this bot, check out his Twitch at https://www.twitch.tv/ryanpython",
+		"!botcred":
+			"{user} Ryan is the creator of this bot, check out his Twitch at https://www.twitch.tv/RythonDev",
 	};
 
-	const titles = ["!ryanpython", "!taskadd", "!taskdone", "!taskhelp"];
+	const titles = ["!botcred", "!taskadd", "!taskdone", "!taskhelp"];
 
 	// Other
 	const styles = {
