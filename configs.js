@@ -109,17 +109,19 @@ const configs = (function () {
 
 	// Add task commands - please add commands in the exact format
 	const addTaskCommands = [
-		"!taska",
-		"!taskadd",
-		"!atask",
-		"!addtask",
 		"!task",
 		"!add",
 		"!todo",
+		"!taska",
+		"!taskadd",
+		"!addtask",
+		"!atask",
 	];
 
 	// Delete task commands - please add commands in the exact format
 	const deleteTaskCommands = [
+		"!remove",
+		"!delete",
 		"!taskd",
 		"!taskdel",
 		"!taskdelete",
@@ -129,69 +131,68 @@ const configs = (function () {
 		"!taskremove",
 		"!rtask",
 		"!removetask",
-		"!remove",
-		"!delete",
 	];
 
 	// Edit task commands - please add commands in the exact format
 	const editTaskCommands = [
-		"!taske",
-		"!taskedit",
-		"!etask",
-		"!edittask",
 		"!edit",
+		"!rename",
+		"!taskedit",
+		"!edittask",
+		"!taske",
+		"!etask",
 	];
 
 	// Finish task commands - please add commands in the exact format
 	const finishTaskCommands = [
+		"!done",
+		"!donetask",
+		"!taskdone",
+		"!finished",
 		"!taskf",
 		"!taskfinish",
 		"!ftask",
 		"!finishtask",
 		"!taskd",
-		"!taskdone",
-		"!donetask",
 		"!dtask",
 		"!finish",
-		"!done",
-		"!finished",
 	];
 
 	// Next task commands - please add commands in the exact format
-	const nextTaskCommands = ["!next", "!nexttask"];
+	const nextTaskCommands = ["!next", "!nexttask", "!taskn"];
 
 	// Check task commands - please add commands in the exact format
 	const checkCommands = [
+		"!mytask",
+		"!check",
 		"!taskc",
 		"!taskcheck",
 		"!ctask",
 		"!checktask",
-		"!mytask",
-		"!check",
 	];
 
 	// Help commands - please add commands in the exact format
 	const helpCommands = [
-		"!taskh",
 		"!taskhelp",
+		"!tasks",
+		"!taskh",
 		"!htask",
 		"!helptask",
-		"!tasks",
 	];
 
 	// Admin delete - please add commands following the exact format
 	const adminDeleteCommands = [
-		"!taskadel",
 		"!adel",
-		"!adelete",
 		"!admindelete",
+		"!taskadel",
+		"!adelete",
 	];
 
 	// Admin clear done - please add commands following the exact format
 	const adminClearDoneCommands = [
+		"!cleardone",
 		"!acleardone",
 		"!admincleardone",
-		"!cleardone",
 	];
 
 	const adminClearAllCommands = [
@@ -201,7 +202,6 @@ const configs = (function () {
 		"!adminallclear",
 		"!aclearall",
 		"!aclear",
-		"!clear",
 	];
 
 	// Responses
