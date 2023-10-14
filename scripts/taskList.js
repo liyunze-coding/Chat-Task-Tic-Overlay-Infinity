@@ -437,7 +437,8 @@ async function animate() {
 		let secondaryElement = document.querySelector(".secondary");
 		secondaryElement.style.display = "flex";
 
-		let finalHeight = taskContainerHeight + 100;
+		let finalHeight =
+			taskContainerHeight + configs.styles.gapBetweenScrolls;
 		let duration = (finalHeight / configs.styles.pixelsPerSecond) * 1000;
 
 		// keyframes object in css scroll

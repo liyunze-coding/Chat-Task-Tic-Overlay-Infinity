@@ -13,17 +13,17 @@ const configs = (function () {
 	const bodyFontFamily = "Nunito"; // supports all google fonts - https://fonts.google.com/
 
 	// scroll
-	const taskListScrollBehaviour = "linear"; // supports all css transition-timing-function
-	const pixelsPerSecond = 30; // must be a number
-	const animationDelay = 5; // must be a number (seconds)
+	const pixelsPerSecond = 70; // must be a number
+
+	const gapBetweenScrolls = 100; // integer only
 
 	// task list
-	const taskListBackgroundColor = "#000"; // hex only
+	const taskListBackgroundColor = "#ff0000"; // hex only
 	const taskListBackgroundOpacity = 0; // must be between 0 and 1
 
-	const taskListBorderColor = "white"; // hex or name
+	const taskListBorderColor = "#00ff00"; // hex or name
 	const taskListBorderWidth = "0px"; // must have px at the end
-	const taskListBorderRadius = "10px"; // must have px at the end
+	const taskListBorderRadius = "0px"; // must have px at the end
 
 	const taskListPadding = "0px"; // must have px at the end
 
@@ -43,9 +43,8 @@ const configs = (function () {
 	const tasksNumberFontSize = "30px"; // must have px at the end
 
 	// body
-	const bodyBackgroundColor = "#ffffff"; // hex only
+	const bodyBackgroundColor = "#00ff00"; // hex only
 	const bodyBackgroundOpacity = 0; // must be between 0 and 1
-	const bodyFontColor = "white"; // hex or name
 
 	const bodyBorderColor = "white"; // hex or name
 	const bodyBorderWidth = "0px"; // must have px at the end
@@ -74,7 +73,7 @@ const configs = (function () {
 	const taskMarginBottom = "5px"; // must have px at the end
 	const taskPadding = "10px"; // must have px at the end
 
-	const taskMaxWidth = "60%";
+	const taskMaxWidth = "100%";
 
 	// checkbox - if enabled
 	const checkBoxSize = "20px"; // must have px at the end
@@ -104,8 +103,8 @@ const configs = (function () {
 	const bulletPointMarginRight = "5px"; // must have px at the end
 
 	// colon
-	const colonMarginLeft = "2px"; // must have px at the end
-	const colonMarginRight = "2px"; // must have px at the end
+	const colonMarginLeft = "0px"; // must have px at the end
+	const colonMarginRight = "5px"; // must have px at the end
 
 	// Add task commands - please add commands in the exact format
 	const addTaskCommands = [
@@ -231,21 +230,20 @@ const configs = (function () {
 			"{user} Ryan is the creator of this bot, check out his Twitch at https://www.twitch.tv/RythonDev",
 	};
 
-	const titles = ["!botcred", "!taskadd", "!taskdone", "!taskhelp"];
+	const titles = ["!botcred", "!taskadd", "!taskdone", "!taskhelp", "!muted"];
 
 	// Other
 	const styles = {
 		headerFontFamily,
 		bodyFontFamily,
-		taskListScrollBehaviour,
 		pixelsPerSecond,
-		animationDelay,
 		taskListBackgroundColor,
 		taskListBackgroundOpacity,
 		taskListBorderColor,
 		taskListBorderWidth,
 		taskListBorderRadius,
 		taskListPadding,
+		gapBetweenScrolls,
 		numberOfLines,
 		headerFontColor,
 		headerBorderColor,
@@ -262,7 +260,6 @@ const configs = (function () {
 		bodyBorderRadius,
 		bodyBackgroundColor,
 		bodyBackgroundOpacity,
-		bodyFontColor,
 		bodyVerticalPadding,
 		bodyHorizontalPadding,
 		usernameColor,

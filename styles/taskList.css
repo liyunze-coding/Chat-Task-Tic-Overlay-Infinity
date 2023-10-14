@@ -40,7 +40,6 @@ CUSTOMIZATIONS TO ADD:
 	--body-border-color: black;
 	--body-border-width: 1px;
 	--body-border-radius: 0px;
-	--body-font-color: white;
 	--body-background-color: rgba(0, 0, 0, 0.5);
 	--body-vertical-padding: 10px;
 	--body-horizontal-padding: 10px;
@@ -153,7 +152,6 @@ body {
 
 .task-wrapper {
 	background: var(--body-background-color);
-	color: var(--body-font-color);
 	font-family: var(--body-font-family);
 
 	border: solid;
