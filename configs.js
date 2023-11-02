@@ -230,7 +230,14 @@ const configs = (function () {
 			"{user} Ryan is the creator of this bot, check out his Twitch at https://www.twitch.tv/RythonDev",
 	};
 
-	const titles = ["!botcred", "!taskadd", "!taskdone", "!taskhelp", "!muted"];
+	const titles = [
+		"!botcred",
+		"!taskadd",
+		"!taskdone",
+		"!taskedit",
+		"!taskdel",
+		"!taskhelp",
+	];
 
 	// Other
 	const styles = {
