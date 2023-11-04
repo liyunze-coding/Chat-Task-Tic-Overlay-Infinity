@@ -1,5 +1,0 @@
-https://id.twitch.tv/oauth2/authorize
-?client_id=CLIENT_ID_HERE
-&redirect_uri=http://localhost
-&response_type=token
-&scope=channel:moderate+chat:edit+chat:read+channel:manage:broadcast+user:edit:broadcast+channel:read:redemptions+user:read:email
