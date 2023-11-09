@@ -8,26 +8,26 @@
 
 ## Content
 
-- [Chat-Task-Tic Widget (Infinity scroll version)](#chat-task-tic-widget-infinity-scroll-version)
-  - [Content](#content)
-  - [Commands](#commands)
-    - [Moderators only](#moderators-only)
-  - [Why you should use this](#why-you-should-use-this)
-  - [For Twitch Task Overlay users (my old task list)](#for-twitch-task-overlay-users-my-old-task-list)
-  - [Installation](#installation)
-  - [Customization settings](#customization-settings)
-    - [settings](#settings)
-    - [fonts](#fonts)
-    - [scroll](#scroll)
-    - [task list](#task-list)
-    - [header](#header)
-    - [body](#body)
-    - [task (individual tasks)](#task-individual-tasks)
-    - [checkbox](#checkbox)
-    - [bullet point](#bullet-point)
-    - [colon](#colon)
-  - [Aliases](#aliases)
-  - [Credits](#credits)
+-   [Chat-Task-Tic Widget (Infinity scroll version)](#chat-task-tic-widget-infinity-scroll-version)
+    -   [Content](#content)
+    -   [Commands](#commands)
+        -   [Moderators only](#moderators-only)
+    -   [Why you should use this](#why-you-should-use-this)
+    -   [For Twitch Task Overlay users (my old task list)](#for-twitch-task-overlay-users-my-old-task-list)
+    -   [Installation](#installation)
+    -   [Customization settings](#customization-settings)
+        -   [settings](#settings)
+        -   [fonts](#fonts)
+        -   [scroll](#scroll)
+        -   [task list](#task-list)
+        -   [header](#header)
+        -   [body](#body)
+        -   [task (individual tasks)](#task-individual-tasks)
+        -   [checkbox](#checkbox)
+        -   [bullet point](#bullet-point)
+        -   [colon](#colon)
+    -   [Aliases](#aliases)
+    -   [Credits](#credits)
 
 ---
 
@@ -95,20 +95,40 @@ const oauth = "OAUTH_TOKEN_HERE"; // do NOT include the 'oauth:' part
 
 ## Installation
 
-1. Install the zip or clone the repository
+1. Get auth token from https://twitchapps.com/tmi
+2. Obtain the token
+3. Put it in auth.js, like so:
 
-2. Create a Twitch application [here](https://dev.twitch.tv/console/apps) \(Log in with your alternate Twitch account if you wish to use a different account as a bot account\)
+```javascript
+const oauth = "oauth:lkajsdlkfjaklsdfjlaksdjf"; // do NOT include the 'oauth:' part
+```
 
-3. Copy the `Client ID` from the application
+4. Remove the "oauth:"
 
-4. Create token using `get_token.txt`. Replace `CLIENT_ID` with the `Client ID` from the application
+```javascript
+const oauth = "lkajsdlkfjaklsdfjlaksdjf"; // do NOT include the 'oauth:' part
+```
 
-5. Setup authentication in `auth.js`
+5. Fill in your channel name:
 
-6. Setup `Browser Source` in OBS studio or other streaming software with the following settings:
+```javascript
+const channel = "RythonDev";
+const username = "YOUR_BOT_ACCOUNT_HERE";
+const oauth = "lkajsdlkfjaklsdfjlaksdjf"; // do NOT include the 'oauth:' part
+```
+
+6. Fill in the bot username, or your channel's username, depending on which account you authorized in twitchapps.com/tmi
+
+```javascript
+const channel = "RythonDev";
+const username = "RythonDev";
+const oauth = "lkajsdlkfjaklsdfjlaksdjf"; // do NOT include the 'oauth:' part
+```
+
+7. Setup `Browser Source` in OBS studio or other streaming software with the following settings:
 
 -   Local File: `checked`
--   Local File: `index.html`
+-   Browse to `index.html`
 
 ---
 
