@@ -56,9 +56,9 @@ const configs = (function () {
 	// task (individual tasks)
 	const numberOfLines = 1; // number of lines for the task
 	const usernameColor = "white"; // hex or name, "" for twitch username color
-	const taskDirection = "row"; // row or column
+	const taskDirection = "column"; // row or column
 
-	const usernameMaxWidth = "200px"; // must have px at the end
+	const usernameMaxWidth = "100%"; // must have px or % at the end
 
 	const taskBackgroundColor = "#000"; // hex only
 	const taskBackgroundOpacity = 0.8; // must be between 0 and 1
@@ -73,7 +73,7 @@ const configs = (function () {
 	const taskMarginBottom = "5px"; // must have px at the end
 	const taskPadding = "10px"; // must have px at the end
 
-	const taskMaxWidth = "100%";
+	const taskMaxWidth = "100%"; // must have px or % at the end
 
 	// checkbox - if enabled
 	const checkBoxSize = "20px"; // must have px at the end
@@ -222,7 +222,8 @@ const configs = (function () {
 	const notMod = "Permission denied, {user}; Mods only";
 	const clearedAll = "All tasks have been cleared";
 	const clearedDone = "All finished tasks have been cleared";
-	const nextNoContent = "Try using !next the-task-you-want-to-do-next {user}";
+	const nextNoContent =
+		"Try using !next the-task-you-want-to-do-next {user}";
 	const help = `{user} Use the following commands to help you out - !task !remove !edit !done. For more commands, click here: https://github.com/liyunze-coding/Chat-Task-Tic-Overlay#commands`;
 
 	const additionalCommands = {
