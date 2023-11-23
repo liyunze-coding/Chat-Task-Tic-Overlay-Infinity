@@ -183,6 +183,11 @@ body {
 }
 
 /* INDIVIDUAL TASKS */
+.done {
+	background-color: var(--done-task-background-color);
+	color: var(--done-task-font-color);
+}
+
 .crossed {
 	text-decoration-line: line-through;
 }
@@ -212,7 +217,6 @@ body {
 	border-color: var(--task-border-color);
 	border-width: var(--task-border-width);
 	border-radius: var(--task-border-radius);
-
 	margin-bottom: var(--task-margin-bottom);
 	padding: var(--task-padding);
 }
@@ -298,4 +302,5 @@ input[type="checkbox"]:checked + label:after {
 	overflow: hidden;
 	width: max-content;
 	max-width: var(--task-max-width);
+	margin-left: var(--task-margin-left);
 }

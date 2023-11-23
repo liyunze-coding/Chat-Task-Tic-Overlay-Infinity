@@ -41,7 +41,13 @@ function importStyles() {
 		return !style.includes("Background");
 	});
 
-	const backgroundStyles = ["taskList", "header", "body", "task", "checkBox"];
+	const backgroundStyles = [
+		"taskList",
+		"header",
+		"body",
+		"task",
+		"checkBox",
+	];
 
 	stylesToImport.forEach((style) => {
 		document.documentElement.style.setProperty(
@@ -245,10 +251,12 @@ function addTasksToDom(username, userColor, task, completed) {
 		taskDiv.className = "task";
 		taskDiv.innerText = task;
 
-		if (configs.settings.crossTasksOnDone) {
-			if (completed) {
-				taskDiv.classList.add("crossed");
-			}
+		if (configs.settings.crossTasksOnDone && completed) {
+			taskDiv.classList.add("crossed");
+		}
+
+		if (completed) {
+			taskDiv.classList.add("done");
 		}
 
 		newTask.appendChild(taskDiv);

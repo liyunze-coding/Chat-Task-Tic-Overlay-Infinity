@@ -56,7 +56,7 @@ const configs = (function () {
 	// task (individual tasks)
 	const numberOfLines = 1; // number of lines for the task
 	const usernameColor = "white"; // hex or name, "" for twitch username color
-	const taskDirection = "column"; // row or column
+	const taskDirection = "row"; // row or column
 
 	const usernameMaxWidth = "100%"; // must have px or % at the end
 
@@ -70,10 +70,17 @@ const configs = (function () {
 	const taskBorderWidth = "0px"; // must have px at the end
 	const taskBorderRadius = "5px"; // must have px at the end
 
+	const taskMarginLeft = "0px"; // must have px at the end
 	const taskMarginBottom = "5px"; // must have px at the end
 	const taskPadding = "10px"; // must have px at the end
 
 	const taskMaxWidth = "100%"; // must have px or % at the end
+
+	// done task
+	const doneTaskBackgroundColor = "#000"; // hex only
+	const doneTaskBackgroundOpacity = 0.8; // must be between 0 and 1
+
+	const doneTaskFontColor = "#bbb"; // hex or name
 
 	// checkbox - if enabled
 	const checkBoxSize = "20px"; // must have px at the end
@@ -279,10 +286,14 @@ const configs = (function () {
 		taskBorderRadius,
 		taskBorderColor,
 		taskBorderWidth,
+		taskMarginLeft,
 		taskMarginBottom,
 		taskPadding,
 		taskDirection,
 		taskMaxWidth,
+		doneTaskBackgroundColor,
+		doneTaskBackgroundOpacity,
+		doneTaskFontColor,
 		checkBoxSize,
 		checkBoxBorderColor,
 		checkBoxBorderRadius,
