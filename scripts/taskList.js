@@ -47,6 +47,7 @@ function importStyles() {
 		"body",
 		"task",
 		"checkBox",
+		"doneTask",
 	];
 
 	stylesToImport.forEach((style) => {
@@ -197,6 +198,12 @@ function addTasksToDom(username, userColor, task, completed) {
 		let usernameTask = document.createElement("div");
 
 		newTask.className = "task-div";
+
+		// if task is done, append "done-task-div" to newTask class
+		if (completed) {
+			newTask.classList.add("done-task-div");
+		}
+
 		usernameTask.className = "username-div";
 
 		if (configs.settings.showCheckBox) {
@@ -502,7 +509,6 @@ function animationFinished() {
 }
 
 function cancelAnimation() {
-	console.log("Animation should be cancelled");
 	if (primaryAnimation) {
 		primaryAnimation.cancel();
 	}

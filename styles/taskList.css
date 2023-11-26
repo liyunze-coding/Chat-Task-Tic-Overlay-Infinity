@@ -79,6 +79,10 @@ CUSTOMIZATIONS TO ADD:
 	--bullet-point-margin-left: 2px;
 	--bullet-point-margin-right: 2px;
 
+	/* done task */
+	--done-task-font-color: gray;
+	--done-task-background-color: rgba(0, 0, 0, 0.5);
+
 	/* username */
 	--username-color: white;
 	--username-max-width: 10px;
@@ -184,7 +188,6 @@ body {
 
 /* INDIVIDUAL TASKS */
 .done {
-	background-color: var(--done-task-background-color);
 	color: var(--done-task-font-color);
 }
 
@@ -211,7 +214,6 @@ body {
 
 	font-size: var(--task-font-size);
 	color: var(--task-font-color);
-	background-color: var(--task-background-color);
 
 	border: solid;
 	border-color: var(--task-border-color);
@@ -219,6 +221,14 @@ body {
 	border-radius: var(--task-border-radius);
 	margin-bottom: var(--task-margin-bottom);
 	padding: var(--task-padding);
+}
+
+.task-div:not(.done-task-div) {
+	background-color: var(--task-background-color);
+}
+
+.task-div.done-task-div {
+	background-color: var(--done-task-background-color);
 }
 
 .secondary {

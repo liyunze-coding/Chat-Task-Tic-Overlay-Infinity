@@ -4,7 +4,7 @@ const configs = (function () {
 	// settings
 	const showDoneTasks = true; // true or false
 	const showTasksNumber = true; // true or false
-	const crossTasksOnDone = false; // true or false
+	const crossTasksOnDone = true; // true or false
 	const showCheckBox = true; // true or false
 	const reverseOrder = false; // true or false
 
@@ -78,7 +78,7 @@ const configs = (function () {
 
 	// done task
 	const doneTaskBackgroundColor = "#000"; // hex only
-	const doneTaskBackgroundOpacity = 0.8; // must be between 0 and 1
+	const doneTaskBackgroundOpacity = 0.5; // must be between 0 and 1
 
 	const doneTaskFontColor = "#bbb"; // hex or name
 
