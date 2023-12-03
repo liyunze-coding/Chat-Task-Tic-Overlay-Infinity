@@ -8,6 +8,10 @@ const configs = (function () {
 	const showCheckBox = true; // true or false
 	const reverseOrder = false; // true or false
 
+	// TOGGLE TRUE WILL RESET TASKS
+	const enableTests = false; // true or false
+	// if dummy tasks are still visible, do !clearall to clear all tasks
+
 	// fonts
 	const headerFontFamily = "Fredoka One"; // supports all google fonts - https://fonts.google.com/
 	const bodyFontFamily = "Nunito"; // supports all google fonts - https://fonts.google.com/
@@ -353,6 +357,7 @@ const configs = (function () {
 	};
 
 	const settings = {
+		enableTests,
 		showDoneTasks,
 		showTasksNumber,
 		crossTasksOnDone,

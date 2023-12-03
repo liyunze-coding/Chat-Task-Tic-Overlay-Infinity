@@ -539,7 +539,7 @@ async function oneLineDoneTasks() {
 	}
 }
 
-function multiUserLineTasks() {
+async function multiUserLineTasks() {
 	let listOfStreamers = [
 		`cloudydayzzz`,
 		`berryspace`,
@@ -560,14 +560,17 @@ function multiUserLineTasks() {
 	// loop through list of streamers
 	for (let i = 0; i < listOfStreamers.length; i++) {
 		addTask(listOfStreamers[i], "#fff", `test task ${i}`);
+		await sleep(100);
 		doneTask(listOfStreamers[i]);
+
+		await sleep(1000);
 	}
 }
 
 function tests() {
 	// oneLineTasks();
-	// multiUserLineTasks();
-	oneLineDoneTasks();
+	multiUserLineTasks();
+	// oneLineDoneTasks();
 }
 
 // hex to rgb that accepts 3 or 6 digits
@@ -632,8 +635,11 @@ setInterval(async () => {
 // on window load
 window.onload = function () {
 	importStyles();
-	// resetDB();
+
 	setupDB();
+	if (configs.settings.enableTests) {
+		resetDB();
+		tests();
+	}
 	renderTaskList();
-	// tests();
 };
