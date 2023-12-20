@@ -16,6 +16,10 @@ const responses = configs.responses;
 let scrolling = false;
 let primaryAnimation, secondaryAnimation;
 
+/**
+ *
+ * @param {string} font
+ */
 function loadGoogleFont(font) {
 	WebFont.load({
 		google: {
@@ -24,13 +28,20 @@ function loadGoogleFont(font) {
 	});
 }
 
-// convert taskListBorderColor to task-list-border-color
+/**
+ * convert taskListBorderColor to task-list-border-color
+ */
 function convertToCSSVar(name) {
 	let cssVar = name.replace(/([A-Z])/g, "-$1").toLowerCase();
 	return `--${cssVar}`;
 }
 
-// import styles from configs
+/**
+ * This function imports styles from the configs object and applies them to the document.
+ * It loads the Google fonts specified in the configs, applies all styles that do not include 'Background' in their keys,
+ * and applies background colors and opacities for specific elements.
+ * If the 'showTasksNumber' setting in configs is false, it hides the task count element.
+ */
 function importStyles() {
 	const styles = configs.styles;
 
@@ -77,6 +88,10 @@ function importStyles() {
 	}
 }
 
+/**
+ * This function sets up the database. It checks if the keys 'usernames_id' and 'tasks' exist in local storage.
+ * If they do not exist, it initializes them with empty objects.
+ */
 function setupDB() {
 	if (!localStorage.usernames_id) {
 		localStorage.setItem(`usernames_id`, "{}");
@@ -86,25 +101,48 @@ function setupDB() {
 	}
 }
 
+/**
+ * This function resets the database. It clears the local storage and then sets up the database again.
+ */
 function resetDB() {
 	localStorage.clear();
 	setupDB();
 }
 
+/**
+ * This function clears all tasks from the task list. It resets the database, cancels any ongoing animation, and re-renders the task list.
+ */
 function clearAllTasks() {
 	resetDB();
 	cancelAnimation();
 	renderTaskList();
 }
 
+/**
+ * This function retrieves the tasks from local storage. It parses the tasks stored under the key 'tasks' and returns them as an array.
+ *
+ * @returns {Array} The array of tasks retrieved from local storage.
+ */
 function getTasks() {
 	return JSON.parse(localStorage.tasks);
 }
 
+/**
+ * This function saves the tasks to local storage. It stringifies the tasks array and stores it under the key 'tasks'.
+ *
+ * @param {Array} tasks - The array of tasks to be saved.
+ */
 function saveTasks(tasks) {
 	localStorage.setItem(`tasks`, JSON.stringify(tasks));
 }
 
+/**
+ * This function retrieves the ID associated with a given username from local storage.
+ * If the username does not exist, it assigns an ID of 0 and stores the username-ID pair in local storage.
+ *
+ * @param {string} username - The username for which to retrieve the ID.
+ * @returns {number} The ID associated with the given username.
+ */
 function getID(username) {
 	let id = 0;
 	let usernames_id = JSON.parse(localStorage.usernames_id);
@@ -118,6 +156,13 @@ function getID(username) {
 	return id;
 }
 
+/**
+ * This function increments the ID associated with a given username by a specified value.
+ * The new ID is then stored in local storage.
+ *
+ * @param {string} username - The username for which to increment the ID.
+ * @param {number} value - The value by which to increment the ID.
+ */
 function incrementID(username, value) {
 	let newID = getID(username) + value;
 	let usernames_id = JSON.parse(localStorage.usernames_id);
@@ -125,6 +170,10 @@ function incrementID(username, value) {
 	localStorage.setItem(`usernames_id`, JSON.stringify(usernames_id));
 }
 
+/**
+ * This function renders the task count on the DOM. It retrieves the tasks from local storage, counts the total number of tasks and the number of completed tasks,
+ * and then updates the task count element on the DOM with the format 'completed/total'.
+ */
 function renderTaskCount() {
 	let tasks = getTasks();
 
@@ -143,6 +192,10 @@ function renderTaskCount() {
 	taskCount.innerText = `${completedTasksCount}/${totalTasksCount}`;
 }
 
+/**
+ * This function renders the task list on the DOM. It retrieves the tasks from local storage, filters them based on the settings,
+ * reverses the order if necessary, and then adds each task to the DOM. After all tasks are added, it renders the task count and triggers the animation.
+ */
 function renderTaskList() {
 	let tasks = getTasks();
 
@@ -189,7 +242,16 @@ function renderTaskList() {
 	animate();
 }
 
-// adding task to DOM
+/**
+ * This function adds tasks to the DOM. It creates a new task element for each task and appends it to the task container.
+ * It also handles the creation of the checkbox or bullet point, the username, and the task text.
+ * If the task is completed, it adds the appropriate classes and checks the checkbox if it exists.
+ *
+ * @param {string} username - The username associated with the task.
+ * @param {string} userColor - The color associated with the username.
+ * @param {string} task - The task text.
+ * @param {boolean} completed - Whether the task is completed or not.
+ */
 function addTasksToDom(username, userColor, task, completed) {
 	let taskContainers = document.querySelectorAll(".task-container");
 
@@ -273,7 +335,13 @@ function addTasksToDom(username, userColor, task, completed) {
 	});
 }
 
-// return true if pending, else false
+/**
+ * This function checks if a user has a task that is not done yet.
+ * It retrieves the tasks from local storage and checks if the task associated with the given username and ID exists and is not done.
+ *
+ * @param {string} username - The username associated with the task.
+ * @returns {boolean} Returns true if the user has a task that is not done yet, false otherwise.
+ */
 function userHasTask(username) {
 	let tasks = getTasks();
 	let id = getID(username);
@@ -285,7 +353,9 @@ function userHasTask(username) {
 	return !tasks[`${username}-${id}`].done;
 }
 
-// user adding task
+/**
+ * user adding task
+ * */
 function addTask(username, userColor, task) {
 	let tasks = getTasks();
 	let id = getID(username);
@@ -303,7 +373,9 @@ function addTask(username, userColor, task) {
 	}
 }
 
-// user completing task
+/** user completing task
+ * @returns {string} The task that was completed.
+ * */
 function doneTask(username) {
 	let id = getID(username);
 	let tasks = getTasks();
@@ -323,7 +395,14 @@ function doneTask(username) {
 	return finishedTask;
 }
 
-// user removing task
+/**
+ * This function removes a task associated with a given username.
+ * It retrieves the ID and tasks from local storage, finds the task associated with the username and ID, and deletes it.
+ * It then decrements the ID, saves the tasks back to local storage, and re-renders the task list if not currently scrolling.
+ *
+ * @param {string} username - The username associated with the task to be removed.
+ * @returns {string} The task that was removed.
+ */
 function removeTask(username) {
 	let id = getID(username);
 	let tasks = getTasks();
@@ -350,7 +429,14 @@ function removeTask(username) {
 	return removedTask;
 }
 
-// user editing task
+/**
+ * This function edits a task associated with a given username.
+ * It retrieves the ID and tasks from local storage, finds the task associated with the username and ID, and updates its text.
+ * It then saves the tasks back to local storage and re-renders the task list if not currently scrolling.
+ *
+ * @param {string} username - The username associated with the task to be edited.
+ * @param {string} task - The new task text.
+ */
 function editTask(username, task) {
 	let tasks = getTasks();
 	let id = getID(username);
@@ -364,7 +450,15 @@ function editTask(username, task) {
 	}
 }
 
-// user finish task + add task
+/**
+ * This function marks the current task as done and adds a new task for the given username.
+ * It first calls the doneTask function to mark the current task as done and then calls the addTask function to add the new task.
+ *
+ * @param {string} username - The username associated with the task.
+ * @param {string} userColor - The color associated with the username.
+ * @param {string} task - The new task text.
+ * @returns {string} The task that was marked as done.
+ */
 function nextTask(username, userColor, task) {
 	let finishedTask = doneTask(username);
 	addTask(username, userColor, task);
@@ -372,7 +466,14 @@ function nextTask(username, userColor, task) {
 	return finishedTask;
 }
 
-// checks user last task
+/**
+ * This function checks if a task exists for a given username.
+ * It first removes the '@' character from the username if it exists, then retrieves the ID associated with the username and the tasks from local storage.
+ * If a task associated with the username and ID exists, it returns the task. Otherwise, it returns an empty string.
+ *
+ * @param {string} username - The username for which to check the task.
+ * @returns {string} The task associated with the given username, or an empty string if no task exists.
+ */
 function checkTask(username) {
 	// remove @ in username if it exists
 	if (username[0] === "@") {
@@ -389,7 +490,14 @@ function checkTask(username) {
 	}
 }
 
-// admin delete all tasks of user
+/**
+ * This function allows an admin to delete all tasks associated with a given username.
+ * It first removes the '@' character from the username if it exists, then retrieves the tasks from local storage.
+ * It then iterates over all tasks and deletes those associated with the username.
+ * After all tasks are deleted, it resets the ID associated with the username to 0, saves the tasks back to local storage, and re-renders the task list.
+ *
+ * @param {string} username - The username for which to delete all tasks.
+ */
 function adminDeleteTask(username) {
 	// remove @ in username if it exists
 	if (username[0] === "@") {
@@ -416,7 +524,11 @@ function adminDeleteTask(username) {
 	cancelAnimation();
 }
 
-// delete all completed tasks
+/**
+ * This function clears all completed tasks from the task list.
+ * It retrieves the tasks from local storage, iterates over them, and deletes those marked as done.
+ * After all completed tasks are deleted, it saves the tasks back to local storage and re-renders the task list.
+ */
 function cleardone() {
 	let tasks = getTasks();
 
@@ -431,12 +543,23 @@ function cleardone() {
 	cancelAnimation();
 }
 
-// sleep function
+/**
+ * This function creates a promise that resolves after a specified number of milliseconds.
+ *
+ * @param {number} ms - The number of milliseconds to wait before the promise resolves.
+ * @returns {Promise} A promise that resolves after the specified number of milliseconds.
+ */
 function sleep(ms) {
 	return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-// scroll up and down
+/**
+ * This function animates the task list by scrolling it up and down once.
+ * It first calculates the heights of the task container and task wrapper.
+ * If the task container height is greater than the task wrapper height and the task list is not currently scrolling, it calculates the final height and duration of the animation,
+ * creates the keyframes and options for the animation, and then creates and plays the animation.
+ * If the task list is currently scrolling, it hides the secondary task list and cancels the animation.
+ */
 async function animate() {
 	// task container height
 	let taskContainer = document.querySelector(".task-container");
@@ -495,6 +618,10 @@ async function animate() {
 	}
 }
 
+/**
+ * This function adds event listeners to the primary animation.
+ * If the primary animation exists, it adds 'finish' and 'cancel' event listeners that both trigger the animationFinished function.
+ */
 function addAnimationListeners() {
 	if (primaryAnimation) {
 		primaryAnimation.addEventListener("finish", animationFinished);
@@ -502,12 +629,20 @@ function addAnimationListeners() {
 	}
 }
 
+/**
+ * This function is triggered when the primary animation finishes or is cancelled.
+ * It sets the scrolling flag to false, re-renders the task list, and then starts the animation again.
+ */
 function animationFinished() {
 	scrolling = false;
 	renderTaskList();
 	animate();
 }
 
+/**
+ * This function cancels the primary and secondary animations if they exist.
+ * It also sets the scrolling flag to false.
+ */
 function cancelAnimation() {
 	if (primaryAnimation) {
 		primaryAnimation.cancel();
@@ -518,28 +653,12 @@ function cancelAnimation() {
 	scrolling = false;
 }
 
-// tests
-function oneLineTasks() {
-	for (let i = 1; i <= 10; i++) {
-		addTasksToDom(`RyanPython${i}`, "test task", false);
-	}
-}
-
-async function oneLineDoneTasks() {
-	for (let i = 1; i <= 7; i++) {
-		addTask(
-			`ryans_impostor_${i}`,
-			"#fff",
-			`test task ${i} never gonna give you up`
-		);
-		// doneTask(`ryans_impostor`);
-		await sleep(1000);
-		doneTask(`ryans_impostor_${i}`);
-		await sleep(1000);
-	}
-}
-
-async function multiUserLineTasks() {
+/**
+ * This function tests the task list functionality with a list of streamers.
+ * It loops through the list of streamers, adds a task for each streamer, waits for 100 milliseconds, and then marks the task as done.
+ * It then waits for 1000 milliseconds before moving on to the next streamer.
+ */
+async function tests() {
 	let listOfStreamers = [
 		`cloudydayzzz`,
 		`berryspace`,
@@ -567,13 +686,17 @@ async function multiUserLineTasks() {
 	}
 }
 
-function tests() {
-	// oneLineTasks();
-	multiUserLineTasks();
-	// oneLineDoneTasks();
-}
-
-// hex to rgb that accepts 3 or 6 digits
+/**
+ * This function converts a hex color code to an RGB color code.
+ * It first checks if the hex code includes the '#' character and removes it if present.
+ * Then, it checks the length of the hex code.
+ * If it's 3, it duplicates each character to create a 6-digit hex code.
+ * If it's 6, it uses the hex code as is.
+ * Finally, it converts each pair of hex digits to decimal to get the RGB values and returns them as a string.
+ *
+ * @param {string} hex - The hex color code to be converted.
+ * @returns {string} The RGB color code.
+ */
 function hexToRgb(hex) {
 	// remove # if present
 	if (hex[0] === "#") {
