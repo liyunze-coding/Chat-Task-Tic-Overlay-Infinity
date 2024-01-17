@@ -233,17 +233,16 @@ const configs = (function () {
 	const notMod = "Permission denied, {user}; Mods only";
 	const clearedAll = "All tasks have been cleared";
 	const clearedDone = "All finished tasks have been cleared";
-	const nextNoContent =
-		"Try using !next the-task-you-want-to-do-next {user}";
+	const nextNoContent = "Try using !next the-task-you-want-to-do-next {user}";
 	const help = `{user} Use the following commands to help you out - !task !remove !edit !done. For more commands, click here: https://github.com/liyunze-coding/Chat-Task-Tic-Overlay#commands`;
 
 	const additionalCommands = {
-		"!botcred":
+		"!rythondev":
 			"{user} Ryan is the creator of this bot, check out his Twitch at https://www.twitch.tv/RythonDev",
 	};
 
 	const titles = [
-		"!botcred",
+		"!RythonDev",
 		"!taskadd",
 		"!taskdone",
 		"!taskedit",
