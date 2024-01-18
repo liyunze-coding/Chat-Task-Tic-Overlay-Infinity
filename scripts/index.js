@@ -147,4 +147,4 @@ ComfyJS.onCommand = (user, command, message, flags, extra) => {
 	}
 };
 
-ComfyJS.Init(auth.username, `oauth:${auth.oauth}`, [auth.channel]);
+ComfyJS.Init(auth.username, `${auth.oauth}`, [auth.channel]);
