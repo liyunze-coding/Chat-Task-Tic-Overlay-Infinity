@@ -88,7 +88,7 @@ After:
 ```javascript
 const channel = "YOUR_TWITCH_CHANNEL";
 const username = "YOUR_BOT_ACCOUNT_HERE";
-const oauth = "OAUTH_TOKEN_HERE"; // do NOT include the 'oauth:' part
+const oauth = "OAUTH_TOKEN_HERE"; // may or may not include the 'oauth:' part
 ```
 
 ---
@@ -100,13 +100,13 @@ const oauth = "OAUTH_TOKEN_HERE"; // do NOT include the 'oauth:' part
 3. Put it in auth.js, like so:
 
 ```javascript
-const oauth = "oauth:lkajsdlkfjaklsdfjlaksdjf"; // do NOT include the 'oauth:' part
+const oauth = "oauth:lkajsdlkfjaklsdfjlaksdjf"; // may or may not include the 'oauth:' part
 ```
 
 4. Remove the "oauth:"
 
 ```javascript
-const oauth = "lkajsdlkfjaklsdfjlaksdjf"; // do NOT include the 'oauth:' part
+const oauth = "lkajsdlkfjaklsdfjlaksdjf"; // may or may not include the 'oauth:' part
 ```
 
 5. Fill in your channel name:
@@ -114,7 +114,7 @@ const oauth = "lkajsdlkfjaklsdfjlaksdjf"; // do NOT include the 'oauth:' part
 ```javascript
 const channel = "RythonDev";
 const username = "YOUR_BOT_ACCOUNT_HERE";
-const oauth = "lkajsdlkfjaklsdfjlaksdjf"; // do NOT include the 'oauth:' part
+const oauth = "lkajsdlkfjaklsdfjlaksdjf"; // may or may not include the 'oauth:' part
 ```
 
 6. Fill in the bot username, or your channel's username, depending on which account you authorized in twitchapps.com/tmi
@@ -122,7 +122,7 @@ const oauth = "lkajsdlkfjaklsdfjlaksdjf"; // do NOT include the 'oauth:' part
 ```javascript
 const channel = "RythonDev";
 const username = "RythonDev";
-const oauth = "lkajsdlkfjaklsdfjlaksdjf"; // do NOT include the 'oauth:' part
+const oauth = "lkajsdlkfjaklsdfjlaksdjf"; // may or may not include the 'oauth:' part
 ```
 
 7. Setup `Browser Source` in OBS studio or other streaming software with the following settings:
