@@ -58,7 +58,7 @@ const configs = (function () {
 	const bodyHorizontalPadding = "5px"; // must have px at the end
 
 	// task (individual tasks)
-	const numberOfLines = 1; // number of lines for the task
+	const numberOfLines = 2; // number of lines for the task
 	const usernameColor = "white"; // hex or name, "" for twitch username color
 	const taskDirection = "row"; // row or column
 
@@ -126,6 +126,7 @@ const configs = (function () {
 		"!taskadd",
 		"!addtask",
 		"!atask",
+		"!a",
 	];
 
 	// Delete task commands - please add commands in the exact format
@@ -141,6 +142,7 @@ const configs = (function () {
 		"!taskremove",
 		"!rtask",
 		"!removetask",
+		"!r",
 	];
 
 	// Edit task commands - please add commands in the exact format
@@ -151,6 +153,7 @@ const configs = (function () {
 		"!edittask",
 		"!taske",
 		"!etask",
+		"!e",
 	];
 
 	// Finish task commands - please add commands in the exact format
@@ -166,10 +169,11 @@ const configs = (function () {
 		"!taskd",
 		"!dtask",
 		"!finish",
+		"!f",
 	];
 
 	// Next task commands - please add commands in the exact format
-	const nextTaskCommands = ["!next", "!nexttask", "!taskn"];
+	const nextTaskCommands = ["!next", "!nexttask", "!taskn", "!n"];
 
 	// Check task commands - please add commands in the exact format
 	const checkCommands = [
@@ -179,6 +183,7 @@ const configs = (function () {
 		"!taskcheck",
 		"!ctask",
 		"!checktask",
+		"!c",
 	];
 
 	// Help commands - please add commands in the exact format

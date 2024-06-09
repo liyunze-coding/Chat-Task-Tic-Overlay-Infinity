@@ -104,9 +104,6 @@ CUSTOMIZATIONS TO ADD:
 
 body {
 	font-size: 16px;
-
-	background-color: gray;
-	color: white;
 }
 
 #main-container {
@@ -214,6 +211,8 @@ body {
 
 	font-size: var(--task-font-size);
 	color: var(--task-font-color);
+
+	font-weight: normal;
 
 	border: solid;
 	border-color: var(--task-border-color);
