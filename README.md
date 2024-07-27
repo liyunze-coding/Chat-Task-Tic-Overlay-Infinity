@@ -418,7 +418,7 @@ Note: You can also use it like this: `!check @user` or `!check user`
 
 ## Credits
 
-**Author:** [**@RyanPython**](https://twitch.tv/RyanPython)
+**Author:** [**@RythonDev**](https://twitch.tv/RythonDev)
 
 <!-- contributed -->
 
@@ -431,7 +431,3 @@ Note: You can also use it like this: `!check @user` or `!check user`
 -   [**@Instafluff**](https://twitch.tv/Instafluff) \(for the Comfy JS library\)
 
 **Shoutout to the following streamers for using my task list:** \(if you use my task list, please let me know and I'll add you to this list\)
-
-<!-- add opoempedernida -->
-
-[**CloudyDayzzz**](https://twitch.tv/CloudyDayzzz), [**berryspace**](https://twitch.tv/berryspace), [**xeno_hiraeth**](https://twitch.tv/xeno_hiraeth), [**euphie\_\_\_**](https://twitch.tv/euphie___), [**jutstreams**](https://twitch.tv/jutstreams), [**mikewhatwhere**](https://twitch.tv/mikewhatwhere), [**StudyPaws**](https://twitch.tv/StudyPaws), [**pcc_lanezzz**](https://twitch.tv/pcc_lanezzz), [**workwithjandj**](https://www.twitch.tv/workwithjandj), [**studylena**](https://www.twitch.tv/studylena), [**sialemmons**](https://www.twitch.tv/sialemmons), [**augywolfy**](https://www.twitch.tv/augywolfy), [**callmemattis**](https://www.twitch.tv/callmemattis), [**5pades\_**](https://www.twitch.tv/5pades_), [**wolfsladymiau**](https://www.twitch.tv/wolfsladymiau), [**j2modest**](https://www.twitch.tv/j2modest), [**nedseveredhead**](https://www.twitch.tv/nedseveredhead), [**interseeker**](https://www.twitch.tv/interseeker), [**oneinalilian**](https://www.twitch.tv/oneinalilian), [**opoempedernida**](https://twitch.tv/opoempedernida)
