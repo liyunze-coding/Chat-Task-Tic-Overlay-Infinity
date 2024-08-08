@@ -13,8 +13,8 @@ const configs = (function () {
 	// if dummy tasks are still visible, do !clearall to clear all tasks
 
 	// fonts
-	const headerFontFamily = "Fredoka One"; // supports all google fonts - https://fonts.google.com/
-	const bodyFontFamily = "Nunito"; // supports all google fonts - https://fonts.google.com/
+	const headerFontFamily = "Quicksand"; // supports all google fonts - https://fonts.google.com/
+	const bodyFontFamily = "Quicksand"; // supports all google fonts - https://fonts.google.com/
 
 	// scroll
 	const pixelsPerSecond = 70; // must be a number
@@ -22,12 +22,12 @@ const configs = (function () {
 	const gapBetweenScrolls = 100; // integer only
 
 	// task list
-	const taskListBackgroundColor = "#ff0000"; // hex only
+	const taskListBackgroundColor = "#A0BCD1"; // hex only
 	const taskListBackgroundOpacity = 0; // must be between 0 and 1
 
-	const taskListBorderColor = "#00ff00"; // hex or name
-	const taskListBorderWidth = "0px"; // must have px at the end
-	const taskListBorderRadius = "0px"; // must have px at the end
+	const taskListBorderColor = "#335686"; // hex or name
+	const taskListBorderWidth = "3px"; // must have px at the end
+	const taskListBorderRadius = "3px"; // must have px at the end
 
 	const taskListPadding = "0px"; // must have px at the end
 
@@ -41,7 +41,7 @@ const configs = (function () {
 	const headerBorderRadius = "10px"; // must have px at the end
 
 	const headerFontSize = "30px"; // must have px at the end
-	const headerFontColor = "white"; // hex or name
+	const headerFontColor = "#F7F8FA"; // hex or name
 
 	const headerPadding = "10px"; // must have px at the end
 	const tasksNumberFontSize = "30px"; // must have px at the end
@@ -50,7 +50,7 @@ const configs = (function () {
 	const bodyBackgroundColor = "#00ff00"; // hex only
 	const bodyBackgroundOpacity = 0; // must be between 0 and 1
 
-	const bodyBorderColor = "white"; // hex or name
+	const bodyBorderColor = "#F7F8FA"; // hex or name
 	const bodyBorderWidth = "0px"; // must have px at the end
 	const bodyBorderRadius = "0px"; // must have px at the end
 
