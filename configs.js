@@ -13,8 +13,8 @@ const configs = (function () {
 	// if dummy tasks are still visible, do !clearall to clear all tasks
 
 	// fonts
-	const headerFontFamily = "Fredoka One"; // supports all google fonts - https://fonts.google.com/
-	const bodyFontFamily = "Nunito"; // supports all google fonts - https://fonts.google.com/
+	const headerFontFamily = "Quicksand"; // supports all google fonts - https://fonts.google.com/
+	const bodyFontFamily = "Quicksand"; // supports all google fonts - https://fonts.google.com/
 
 	// scroll
 	const pixelsPerSecond = 70; // must be a number
@@ -22,10 +22,10 @@ const configs = (function () {
 	const gapBetweenScrolls = 100; // integer only
 
 	// task list
-	const taskListBackgroundColor = "#ff0000"; // hex only
+	const taskListBackgroundColor = "#F7F8FA"; // hex only
 	const taskListBackgroundOpacity = 0; // must be between 0 and 1
 
-	const taskListBorderColor = "#00ff00"; // hex or name
+	const taskListBorderColor = "101D42"; // hex or name
 	const taskListBorderWidth = "0px"; // must have px at the end
 	const taskListBorderRadius = "0px"; // must have px at the end
 
