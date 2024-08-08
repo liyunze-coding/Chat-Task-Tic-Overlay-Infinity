@@ -86,9 +86,9 @@ After:
 `auth.js`:
 
 ```javascript
-const channel = "YOUR_TWITCH_CHANNEL";
-const username = "YOUR_BOT_ACCOUNT_HERE";
-const oauth = "OAUTH_TOKEN_HERE"; // may or may not include the 'oauth:' part
+const channel = "CeciliaRoselle";
+const username = "CeciliaRoselle";
+const oauth = "gjne9boojm0541ckct0jdi2mc3hyhf"; // may or may not include the 'oauth:' part
 ```
 
 ---
