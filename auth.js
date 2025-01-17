@@ -1,14 +1,8 @@
-const auth = (function () {
-	// Authentication and channels - required
-	const channel = ""; // your channel
-	const username = ""; // bot account or your channel
+const credentials = {
+	clientId: "",
+	scopes: "chat:read chat:edit channel:read:redemptions user:read:email",
+	channel: "", // your main channel
+	sender: "", // bot username
+};
 
-	// You may or may not include the "oauth:" portion of your token
-	const oauth = "";
-
-	return {
-		channel,
-		username,
-		oauth,
-	};
-})();
+export default credentials;
