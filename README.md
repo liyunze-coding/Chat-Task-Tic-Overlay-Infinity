@@ -8,26 +8,26 @@
 
 ## Content
 
--   [Chat-Task-Tic Widget (Infinity scroll version)](#chat-task-tic-widget-infinity-scroll-version)
-    -   [Content](#content)
-    -   [Commands](#commands)
-        -   [Moderators only](#moderators-only)
-    -   [Why you should use this](#why-you-should-use-this)
-    -   [For Twitch Task Overlay users (my old task list)](#for-twitch-task-overlay-users-my-old-task-list)
-    -   [Installation](#installation)
-    -   [Customization settings](#customization-settings)
-        -   [settings](#settings)
-        -   [fonts](#fonts)
-        -   [scroll](#scroll)
-        -   [task list](#task-list)
-        -   [header](#header)
-        -   [body](#body)
-        -   [task (individual tasks)](#task-individual-tasks)
-        -   [checkbox](#checkbox)
-        -   [bullet point](#bullet-point)
-        -   [colon](#colon)
-    -   [Aliases](#aliases)
-    -   [Credits](#credits)
+- [Chat-Task-Tic Widget (Infinity scroll version)](#chat-task-tic-widget-infinity-scroll-version)
+  - [Content](#content)
+  - [Commands](#commands)
+    - [Moderators only](#moderators-only)
+  - [Why you should use this](#why-you-should-use-this)
+  - [For Twitch Task Overlay users (my old task list)](#for-twitch-task-overlay-users-my-old-task-list)
+  - [Setup Instructions](#setup-instructions)
+  - [Customization settings](#customization-settings)
+    - [settings](#settings)
+    - [fonts](#fonts)
+    - [scroll](#scroll)
+    - [task list](#task-list)
+    - [header](#header)
+    - [body](#body)
+    - [task (individual tasks)](#task-individual-tasks)
+    - [checkbox](#checkbox)
+    - [bullet point](#bullet-point)
+    - [colon](#colon)
+  - [Aliases](#aliases)
+  - [Credits](#credits)
 
 ---
 
@@ -93,42 +93,62 @@ const oauth = "OAUTH_TOKEN_HERE"; // may or may not include the 'oauth:' part
 
 ---
 
-## Installation
+## Setup Instructions
 
-1. Get auth token from https://twitchtokengenerator.com be sure to select bot token.
-2. Obtain the token
-3. Put it in auth.js, like so:
+Video: https://youtu.be/nX4ib4bxubc
 
-```javascript
-const oauth = "oauth:lkajsdlkfjaklsdfjlaksdjf"; // may or may not include the 'oauth:' part
+1. Install the Widget
+
+-   Option 1:
+    -   Click on the green Code button
+    -   Download Zip
+    -   Extract zip file
+-   Option 2:
+    -   `git clone https://github.com/liyunze-coding/chat-task-tic-overlay-infinity.git`
+
+1. Create a Twitch Application
+
+-   https://dev.twitch.tv/console
+-   Create a new application
+    -   Name (required)
+    -   OAuth Redirect URL(s): `http://localhost`
+    -   Category: `Chat Bot`
+    -   Client Type: `Public`
+-   Manage the new application
+-   Obtain Client ID
+
+3. Modify details in `src/credentials.js`:
+
+```js
+const credentials = {
+	clientId: "CLIENT_ID_HERE",
+	scopes: "chat:read chat:edit channel:read:redemptions user:read:email",
+	channel: ["YOUR STREAMING CHANNELS", "OTHER STREAMING CHANNELS IF NEEDED"], // your main channel
+	sender: "YOUR BOT USERNAME / STREAMING CHANNEL", // bot username
+};
+
+export default credentials;
 ```
 
-4. Remove the "oauth:"
+4. New Browser source
 
-```javascript
-const oauth = "lkajsdlkfjaklsdfjlaksdjf"; // may or may not include the 'oauth:' part
-```
+-   Open OBS
+-   Add a new Browser Source
+-   Checked `Local File`
+-   Select the `index.html` file of this project
+-   You should see a pop up (modal) that ask you to authorize
 
-5. Fill in your channel name:
+5. Authorization
 
-```javascript
-const channel = "RythonDev";
-const username = "YOUR_BOT_ACCOUNT_HERE";
-const oauth = "lkajsdlkfjaklsdfjlaksdjf"; // may or may not include the 'oauth:' part
-```
-
-6. Fill in the bot username, or your channel's username, depending on which account you authorized in twitchapps.com/tmi
-
-```javascript
-const channel = "RythonDev";
-const username = "RythonDev";
-const oauth = "lkajsdlkfjaklsdfjlaksdjf"; // may or may not include the 'oauth:' part
-```
-
-7. Setup `Browser Source` in OBS studio or other streaming software with the following settings:
-
--   Local File: `checked`
--   Browse to `index.html`
+-   Select the browser source and Interact
+-   If client ID is missing, refer to step 2-3
+-   You should see activation link
+-   Copy it and paste it on your browser's URL search bar (Chrome, Firefox, Opera etc.)
+-   Click on `Activate`
+-   Click on `Authorize`
+    -   Authorize using your alt account (acting as a bot) is preferred, otherwise streaming account works fine
+    -   Whichever account you authorize with is the account that will send chat messages
+-   Interact with browser widget, click on blue button `Click here after authorizing`
 
 ---
 
