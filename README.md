@@ -8,26 +8,26 @@
 
 ## Content
 
-- [Chat-Task-Tic Widget (Infinity scroll version)](#chat-task-tic-widget-infinity-scroll-version)
-  - [Content](#content)
-  - [Commands](#commands)
-    - [Moderators only](#moderators-only)
-  - [Why you should use this](#why-you-should-use-this)
-  - [For Twitch Task Overlay users (my old task list)](#for-twitch-task-overlay-users-my-old-task-list)
-  - [Setup Instructions](#setup-instructions)
-  - [Customization settings](#customization-settings)
-    - [settings](#settings)
-    - [fonts](#fonts)
-    - [scroll](#scroll)
-    - [task list](#task-list)
-    - [header](#header)
-    - [body](#body)
-    - [task (individual tasks)](#task-individual-tasks)
-    - [checkbox](#checkbox)
-    - [bullet point](#bullet-point)
-    - [colon](#colon)
-  - [Aliases](#aliases)
-  - [Credits](#credits)
+-   [Chat-Task-Tic Widget (Infinity scroll version)](#chat-task-tic-widget-infinity-scroll-version)
+    -   [Content](#content)
+    -   [Commands](#commands)
+        -   [Moderators only](#moderators-only)
+    -   [Why you should use this](#why-you-should-use-this)
+    -   [For Twitch Task Overlay users (my old task list)](#for-twitch-task-overlay-users-my-old-task-list)
+    -   [Setup Instructions](#setup-instructions)
+    -   [Customization settings](#customization-settings)
+        -   [settings](#settings)
+        -   [fonts](#fonts)
+        -   [scroll](#scroll)
+        -   [task list](#task-list)
+        -   [header](#header)
+        -   [body](#body)
+        -   [task (individual tasks)](#task-individual-tasks)
+        -   [checkbox](#checkbox)
+        -   [bullet point](#bullet-point)
+        -   [colon](#colon)
+    -   [Aliases](#aliases)
+    -   [Credits](#credits)
 
 ---
 
@@ -117,7 +117,7 @@ Video: https://youtu.be/nX4ib4bxubc
 -   Manage the new application
 -   Obtain Client ID
 
-3. Modify details in `src/credentials.js`:
+3. Modify details in `auth.js`:
 
 ```js
 const credentials = {
