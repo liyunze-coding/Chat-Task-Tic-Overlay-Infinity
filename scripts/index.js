@@ -146,10 +146,3 @@ ComfyJS.onCommand = (user, command, message, flags, extra) => {
 		// command not found
 	}
 };
-
-const oauth_token = auth.oauth.includes("oauth:")
-	? auth.oauth
-	: `oauth:${auth.oauth}`;
-const auth_username = auth.username ? auth.username : auth.channel;
-
-ComfyJS.Init(auth_username, `${oauth_token}`, [auth.channel]);
