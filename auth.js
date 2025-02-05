@@ -1,8 +1,8 @@
 const credentials = {
-	clientId: "kzd2ul48qycwmkm0kjkghjfw3f3uwd",
+	clientId: "",
 	scopes: "chat:read chat:edit channel:read:redemptions user:read:email",
-	channel: "RythonDev", // your main channel
-	sender: "RythonDev", // bot username
+	channel: "", // your main channel
+	sender: "", // bot username
 };
 
 export default credentials;

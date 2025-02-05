@@ -105,7 +105,8 @@ function setupDB() {
  * This function resets the database. It clears the local storage and then sets up the database again.
  */
 function resetDB() {
-	localStorage.clear();
+	localStorage.setItem(`usernames_id`, "{}");
+	localStorage.setItem(`tasks`, "{}");
 	setupDB();
 }
 
