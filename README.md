@@ -31,6 +31,9 @@
 
 ---
 
+## VIDEO TUTORIAL HERE
+https://youtu.be/bl9E0-v6nLE
+
 ## Commands
 
 -   !task \<task\> - Add a task
