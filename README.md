@@ -98,7 +98,7 @@ const oauth = "OAUTH_TOKEN_HERE"; // may or may not include the 'oauth:' part
 
 ## Installation
 
-1. Get auth token from https://twitchtokengenerator.com be sure to select bot token.
+1. Get auth token from https://sarayalth.github.io/TwitchOAuthGenerator/ be sure to select bot token.
 2. Obtain the token
 3. Put it in auth.js, like so:
 
